@@ -58,7 +58,7 @@ OPT_DEFS += -DBOOTLOADER_SIZE=4096
 # Build Options
 #   comment out to disable the options.
 #
-BOOTMAGIC_ENABLE = yes # Virtual DIP switch configuration(+1000)
+# BOOTMAGIC_ENABLE = yes # Virtual DIP switch configuration(+1000)
 MOUSEKEY_ENABLE = yes  # Mouse keys(+4700)
 EXTRAKEY_ENABLE = yes  # Audio control and System control(+450)
 CONSOLE_ENABLE = yes   # Console for debug(+400)
@@ -73,7 +73,7 @@ CUSTOM_MATRIX = yes    # Custom matrix file for the HHKB
 # BLUETOOTH_ENABLE = yes  # Enable Bluetooth with the Adafruit EZ-Key HID
 
 
-# HHKB_RN42_ENABLE = yes  # Enable support for hasu's BT alt controller -- code borrowed from tmk source tree.
+HHKB_RN42_ENABLE = yes  # Enable support for hasu's BT alt controller -- code borrowed from tmk source tree.
 
 # Either uncomment the HHKB_RN42_ENABLE line above, or run make enabling the
 # feature. Be sure to clean any existing build before trying to enable rn42
@@ -101,6 +101,8 @@ VPATH += $(RN42_DIR)
 
 endif
 
+# Use link time optimization
+EXTRAFLAGS += -flto -DUSE_Link_Time_Optimization
 
 # debug-on: EXTRAFLAGS += -DDEBUG -DDEBUG_ACTION
 # debug-on: all
