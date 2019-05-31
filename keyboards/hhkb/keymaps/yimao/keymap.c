@@ -45,11 +45,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |      |VoD|VoU|Mut|   |   |  *|  /|Hom|PgU|Lef|Rig|Enter   |
      * |-----------------------------------------------------------|
-     * |        |DRP|DRP|DRS|DRS|DRE|  +|  -|End|PgD|Dow|      |   |
+     * |        |DMP|DMP|REC|REC|DRE|  +|  -|End|PgD|Dow|      |   |
      * `-----------------------------------------------------------'
      *       |   |     |                       |     |   |
      *       `-------------------------------------------'
-     * DRS: Dynamic Record Start / DME: Dynamic Record End / DMP: Dynamic Macro Play
+     * REC: Dynamic Record Start / DRE: Dynamic Record End / DMP: Dynamic Macro Play
      */
     [HHKB] = LAYOUT(
         KC_PWR, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_INS, KC_DEL, 
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |Esc| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
      * |-----------------------------------------------------------|
-     * |Tab  |   |   |   |   |   |MwL|MwU|McU|MwD|MwR|   |   |Alt-T|
+     * |Tab  |   |   |   |   |   |MwL|MwU|McU|MwD|MwR|   |   |Backs|
      * |-----------------------------------------------------------|
      * |Contro|  |Acl2|Acl1|Acl0|  |Mb2|McL|McD|McR|Mb1|  |Return  |
      * |-----------------------------------------------------------|
