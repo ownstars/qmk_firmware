@@ -65,3 +65,7 @@ use `s` `d` `f` to control mouse acceleration.
 ### Known issue
 HHKB_RN42_ENABLE rule is not working in keymap folder, set it in keyboard folder or use HHKB_RN42_ENABLE=yes while compiling.\
 Console feature can not be disabled while using bluetooth.
+
+### Compile
+make hhkb:yimao HHKB_RN42_ENABLE=yes
+

@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |Contro|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|Enter   |
      * |-----------------------------------------------------------|
-     * |Shift(  |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift)|LEA|
+     * |Shift(  |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|Shift)|F13|
      * `-----------------------------------------------------------'
      *       |MO1|Gui |         Space         |MO1  |Gui|
      *       `-------------------------------------------'
@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSLS, KC_GRV, 
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BSPC, 
         KC_LCTL, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, LT(MOUSE, KC_SCLN), KC_QUOT, KC_ENT, 
-        KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_LEAD,
+        KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, KC_F13,
         MO(HHKB), KC_LGUI, KC_SPC, KC_RGUI, KC_LALT),
 
     [PC] = LAYOUT( //  default layer
@@ -119,47 +119,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     return true;
 }
 
-/* Leader key */
-LEADER_EXTERNS();
-
-void matrix_scan_user(void)
-{
-    LEADER_DICTIONARY()
-    {
-        leading = false;
-        leader_end();
-
-        SEQ_ONE_KEY(KC_G)
-        {
-            SEND_STRING("ownstars@gmail.com");
-        }
-        SEQ_ONE_KEY(KC_S)
-        {
-            SEND_STRING("https://bbs.saraba1st.com/2b"SS_TAP(X_ENTER));
-        }
-        SEQ_ONE_KEY(KC_1)
-        {
-            layer_invert(BASE);
-        }
-        SEQ_ONE_KEY(KC_2)
-        {
-            layer_invert(PC);
-        }
-        SEQ_TWO_KEYS(KC_D, KC_D)
-        {
-            SEND_STRING(SS_LCTRL("a")SS_LCTRL("c"));
-        }
-        SEQ_TWO_KEYS(KC_A, KC_S)
-        {
-            register_code(KC_LGUI);
-            register_code(KC_S);
-            unregister_code(KC_S);
-            unregister_code(KC_LGUI);
-        }
-  }
-}
-
-void leader_start(void)
-{
-    layer_move(BASE);
-}
